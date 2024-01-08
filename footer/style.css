@@ -1,0 +1,40 @@
+/*###########################################################################################################################################*/
+/*custom css*/
+
+.custom-footer-social-media-link{
+    text-decoration: none;
+    color: inherit;
+}
+
+.custom-footer{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    /*margin-left: 20px;*/
+    /*margin-right: 20px;*/
+	font: normal normal 14px Open Sans, sans-serif;
+}
+
+.custom-line-division{
+    width: 100%;
+    border-top: solid 1px #bdbdbd;
+    content-visibility: hidden;
+}
+
+.custom-centered-text{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+
+.custom-table-element{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.bi{
+    color:#607d8b;
+}
+/*###########################################################################################################################################*/
