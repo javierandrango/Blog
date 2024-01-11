@@ -1,0 +1,120 @@
+.custom-nabvar{
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+}
+.navbar-icon{
+    font-size: 1.5rem;
+    color: #607D8B;
+}
+#custom-icon-home{
+    font-size: 1.5rem;
+    color: black;
+}
+
+.custom-nabvar-list{
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.custom-nabvar-item, .custom-nabvar-home{
+    font: normal normal 14px Open Sans, sans-serif;
+    text-decoration:none;
+    color: inherit;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.custom-nabvar-item{
+    display: none;
+    border-left: solid 1px black;
+    border-right: solid 1px black;
+    width: 69px;
+}
+.custom-nabvar-home{
+    display: flex;
+    border-right: solid 1px black;
+}
+.custom-nabvar-item-name{
+    margin: 0;
+    white-space: nowrap; /*keep text in single line*/
+    color: #607D8B;
+    font-weight: normal;
+}
+#custom-text-home{
+    margin: 0;
+    color: black;
+    font-weight: normal;
+    /*font-weight: bold;*/
+}
+
+/*hide the list items but one*/
+/*--------------*/
+#custom-item0{
+    display:flex;
+}
+/*------------*/
+.bi-caret-left-square-fill,.bi-caret-right-square-fill{
+    color: #607D8B;
+}
+#btn-left,#btn-right{
+    border: none;
+    background: none;
+    width: 44px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+#custom-underline-home{
+    visibility: visible;
+    /*visibility: hidden;*/
+    position: relative;
+    top: 5px;
+    margin: 0;
+    width: 75%;
+    border-bottom: solid 2px black;
+}
+
+.custom-underline-list{
+    /*visibility: visible;*/
+    visibility: hidden;
+    position: relative;
+    top: 5px;
+    margin: 0;
+    width: 75%;
+    border-bottom: solid 2px black;
+}
+
+/**phone screens*/
+@media only screen and (min-width:390px) and (max-width:700px){
+    .custom-nabvar-item, .custom-nabvar-home{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .custom-nabvar-item{
+        width: 140px;
+    }
+}
+
+@media only screen and (min-width:701px){
+    #btn-left,#btn-right{
+        display: none;
+    }
+    .custom-nabvar-list{
+        display: flex;
+    }
+    .custom-nabvar-home{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .custom-nabvar-item{
+        display: flex;
+        border-right: none;
+        border-left: solid 1px black;
+        width: 140px;
+    }
+    .custom-nabvar-list li:last-child .custom-nabvar-item{
+        border-right: solid 1px black;
+    }
+}
