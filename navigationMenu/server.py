@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 
 app = Flask(__name__)
 
@@ -8,19 +8,19 @@ def home():
 
 @app.route('/electronics')
 def electronics():
-    return "electronics"
+    return render_template("electronics.html")
 
 @app.route('/artificial-intelligence')
 def ai():
-    return "artificial-intelligence"
+    return render_template("artificial-intelligence.html")
 
 @app.route('/robotics')
 def robotics():
-    return "robotics"
+    return render_template("robotics.html")
 
 @app.route('/software')
 def software():
-    return "software"
+    return render_template("software.html")
 
 
 if  __name__ == "__main__":
