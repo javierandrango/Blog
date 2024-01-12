@@ -46,8 +46,8 @@
 #custom-text-home{
     margin: 0;
     color: black;
-    font-weight: normal;
-    /*font-weight: bold;*/
+    font-weight: bold;
+    /*font-weight: normal;*/
 }
 
 /*hide the list items but one*/
