@@ -1,0 +1,26 @@
+.custom-codebox-container{
+    position: relative;
+    overflow: hidden; 
+}
+.custom-line-numbers {
+    counter-reset: line;
+    float: left;
+    padding: 10px;
+    background-color: #f0f0f0;
+    user-select: none;
+}
+.custom-code-body{
+    white-space: pre-line;
+    overflow-x: auto;
+    padding-left: 20px; /* Adjust to match the width of line numbers */ 
+}
+.custom-code-body::before{
+    content: counter(line);
+    counter-increment: line;
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 20px; /* Adjust to match the width of line numbers */
+    text-align: right;
+    color: #888;  
+}
