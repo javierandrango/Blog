@@ -45,6 +45,14 @@ const pageListNewStyle={
 }
 
 
+//subdirectory in url:
+const subdirectory=[
+    'electronics',
+    'artificial-intelligence',
+    'robotics',
+    'software'
+]
+
 /**
  * Events listener
  */
@@ -71,6 +79,7 @@ if (btnLeft && btnRight){
 // responsive design changes with resize
 window.addEventListener("resize",function(){
     const buttonState = window.getComputedStyle(btnLeft).getPropertyValue("display");
+    const classifiedArticles =  findInSubdirectory(subdirectory)
     if (buttonState == "none"){
         //show all hidden items in page list
         for (let itemCount=0 ;itemCount<pageList.length; itemCount++){
@@ -85,6 +94,10 @@ window.addEventListener("resize",function(){
             if(pageList[itemCount].href.includes(window.location.pathname) && window.location.pathname != "/"){
                 activeItemList(itemCount); 
             }
+
+        }
+        if (classifiedArticles>=0){
+            activeItemList(classifiedArticles); 
         }
     }
 });
@@ -92,19 +105,23 @@ window.addEventListener("resize",function(){
 //show changes on load
 window.addEventListener("load",()=>{
     const buttonState = window.getComputedStyle(btnLeft).getPropertyValue("display");
+    const classifiedArticles =  findInSubdirectory(subdirectory)
     if (buttonState == "block"){
         for (let itemCount=0 ;itemCount<pageList.length; itemCount++){
             if(pageList[itemCount].href.includes(window.location.pathname) && window.location.pathname != "/"){
                 activeItemList(itemCount); 
-            }
+            } 
+        }
+        if (classifiedArticles>=0){
+            activeItemList(classifiedArticles); 
         }
     }
 })
 
 if (pageList){
     for (let i=0; i<pageList.length; i++){
-        if(pageList[i].href.includes(window.location.pathname) && window.location.pathname != "/"){
-            //console.log("origin:",window.location.pathname)
+        const classifiedArticles =  findInSubdirectory(subdirectory)
+        if(pageList[i].href.includes(window.location.pathname) && window.location.pathname != "/" || i==classifiedArticles){
             // page new style
             pageListIcon[i].style.color = pageListNewStyle.iconColor;
             pageListName[i].style.color = pageListNewStyle.textColor;
@@ -132,3 +149,12 @@ function activeItemList (pageNum){
     };
     pageList[pageNum].style.display = "flex"; 
 };
+
+//find patern in url
+function findInSubdirectory(list){
+    for (let i = 0; i<list.length; i++){
+        if(window.location.pathname.includes(list[i])){
+            return i
+        }
+    }
+}
