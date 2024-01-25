@@ -9,7 +9,15 @@
     <!--local CSS-->
     <link rel="stylesheet" type="text/css" href="./style.css">
     <!--local javascript-->
-    <script src="./codeBox.js"></script>
+    <script type="module" src="./codeBox.js"></script>
+    
+    <!-- highlights-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/googlecode.css">
+    <!--
+      available style list: https://github.com/highlightjs/highlight.js/tree/main/src/styles
+    -->
+
+
 </head>
 <body>
     <!--code block 1-->
@@ -196,5 +204,30 @@
           </pre>
       </div>
     </div>
+
+    <!--code block 4-->
+    <div class="custom-code-body-container">
+      <div class="custom-code-header-container">
+          <p class="custom-code-title">codeBox.js</p>
+          <button  class="custom-button-copy-code" type="button">copy</button>
+      </div>
+      <div class="custom-code-main-container">
+          <pre class="custom-code">
+            .custom-code{
+              tab-size: 4;
+              white-space: pre;
+              counter-reset: line;
+              overflow-x: auto;
+              padding-left: 20px; /*Adjust to match the width of line numbers*/
+              font-size: 16px;
+              line-height: 16px;
+              padding-top:10px;
+              padding-bottom: 10px;
+            }
+          </pre>
+      </div>
+    </div>
+
+
 </body>
 </html>
