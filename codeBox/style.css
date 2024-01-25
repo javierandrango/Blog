@@ -6,6 +6,8 @@
     padding-left: 20px; /*Adjust to match the width of line numbers*/
     font-size: 16px;
     line-height: 16px;
+    padding-top:10px;
+    padding-bottom: 10px;
 }
 
 pre span.line{
@@ -32,11 +34,11 @@ pre span.line::before {
     margin-right: 5px;
     margin-top: 20px;
     margin-bottom: 20px;
-    border: solid 1px black;
+    border: solid 1px #bdbdbd;
     border-radius: 10px;
 }
 .custom-code-header-container{
-    border-bottom: solid 1px black;
+    border-bottom: solid 1px #bdbdbd;
     margin-left: 20px;
     margin-right: 20px;
 
@@ -46,4 +48,16 @@ pre span.line::before {
 }
 .custom-code-title{
     display: inline-block;
+    font: 400 20px Lora, serif;
+}
+
+.custom-button-copy-code{
+    color: white;
+    background-color: #607D8B;
+    border: 0;
+    font: 600 14px "Open Sans", sans-serif;
+    font-weight: normal;
+    border-radius: 2px;
+    padding: 10px;
+    height: 40px;
 }
