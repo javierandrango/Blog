@@ -12,19 +12,19 @@
     <script src="./codeBox.js"></script>
 </head>
 <body>
-    <div>
+    <!--code block 1-->
+    <div class="custom-codebox">
         <div class="custom-codebox-header-container">
             <p class="custom-code-title">main.cpp</p>
             <button type="button">copy</button>
         </div>
         <div class="custom-codebox-container">
-            <div class="custom-line-numbers"></div>
             <pre class="custom-code-body">
-                #include <Arduino.h>
-                #include <FS.h>
-                #include <LittleFS.h>
-                #include <WiFi.h>
-                #include <ESPAsyncWebServer.h>
+                #include &lt;Arduino.h&gt;
+                #include &lt;FS.h&gt;
+                #include &lt;LittleFS.h&gt;
+                #include &lt;WiFi.h&gt;
+                #include &lt;ESPAsyncWebServer.h&gt;
                 
                 /*variable declaration*/
                 /*-------------------------------------------------------------------*/
@@ -101,7 +101,7 @@
                   });
                   
                 
-                  // Send a GET request to <IP>/get?message=<message>
+                  // Send a GET request to &lt;IP&gt;/get?message=&lt;message&gt;
                     server.on("/get", HTTP_GET, [] (AsyncWebServerRequest *request) {
                         String message;
                         if (request->hasParam(PARAM_MESSAGE)) {
@@ -161,8 +161,40 @@
             </pre>
         </div>
     </div>
+
     <div>
-        more context here
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, commodi? Doloremque ratione illum dolor, vero ab velit tempore debitis mollitia sint cum molestias obcaecati repellendus quibusdam eum eius officia cumque!
+    </div>
+
+    <!--code block 2-->
+    <div>
+      <div class="custom-codebox-header-container">
+          <p class="custom-code-title">test.js</p>
+          <button type="button">copy</button>
+      </div>
+      <div class="custom-codebox-container">
+          <pre class="custom-code-body">
+            console.log(code.length)
+          </pre>
+      </div>
+    </div>
+    
+    <!--code block 3-->
+    <div>
+      <div class="custom-codebox-header-container">
+          <p class="custom-code-title">codeBox.js</p>
+          <button type="button">copy</button>
+      </div>
+      <div class="custom-codebox-container">
+          <pre class="custom-code-body">
+            for (let i=1; i &lt;=numberCodeLines; i++){
+              let line = document.createElement('div');
+              line.className = 'custom-code-body::before'
+              line.innerText = i;
+              lineNumbers.appendChild(line);
+            }
+          </pre>
+      </div>
     </div>
 </body>
 </html>

@@ -1,26 +1,37 @@
-.custom-codebox-container{
-    position: relative;
-    overflow: hidden; 
-}
-.custom-line-numbers {
-    counter-reset: line;
+
+.custom-line-numbers{
     float: left;
     padding: 10px;
+    padding-bottom: 0px;
     background-color: #f0f0f0;
     user-select: none;
 }
+
 .custom-code-body{
-    white-space: pre-line;
+    tab-size: 4;
+    white-space: pre;
+    counter-reset: line;
     overflow-x: auto;
-    padding-left: 20px; /* Adjust to match the width of line numbers */ 
+    padding-left: 20px; /*Adjust to match the width of line numbers*/
+    font-size: 16px;
+    line-height: 16px;
 }
-.custom-code-body::before{
-    content: counter(line);
+
+pre span.line{
     counter-increment: line;
+    line-height: 16px;
+}
+
+pre span.line::before {
+    background-color: #f0f0f0;
+    float:left;
+    content: counter(line);
+    width: 20px;
     display: block;
-    position: absolute;
-    left: 0;
-    width: 20px; /* Adjust to match the width of line numbers */
+    border-right: 1px dotted #ccc;
+    padding-right: 3px;
+    margin-right: 20px;
     text-align: right;
-    color: #888;  
+    font-size: 11px;
+    line-height: 16px;
 }
