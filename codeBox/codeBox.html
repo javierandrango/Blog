@@ -13,13 +13,13 @@
 </head>
 <body>
     <!--code block 1-->
-    <div class="custom-codebox">
-        <div class="custom-codebox-header-container">
+    <div class="custom-code-body-container">
+        <div class="custom-code-header-container">
             <p class="custom-code-title">main.cpp</p>
-            <button type="button">copy</button>
+            <button class="custom-button-copy-code" type="button">copy</button>
         </div>
-        <div class="custom-codebox-container">
-            <pre class="custom-code-body">
+        <div class="custom-code-main-container">
+            <pre class="custom-code">
                 #include &lt;Arduino.h&gt;
                 #include &lt;FS.h&gt;
                 #include &lt;LittleFS.h&gt;
@@ -167,26 +167,26 @@
     </div>
 
     <!--code block 2-->
-    <div>
-      <div class="custom-codebox-header-container">
+    <div class="custom-code-body-container">
+      <div class="custom-code-header-container">
           <p class="custom-code-title">test.js</p>
-          <button type="button">copy</button>
+          <button class="custom-button-copy-code" type="button">copy</button>
       </div>
-      <div class="custom-codebox-container">
-          <pre class="custom-code-body">
+      <div class="custom-code-main-container">
+          <pre class="custom-code">
             console.log(code.length)
           </pre>
       </div>
     </div>
     
     <!--code block 3-->
-    <div>
-      <div class="custom-codebox-header-container">
+    <div class="custom-code-body-container">
+      <div class="custom-code-header-container">
           <p class="custom-code-title">codeBox.js</p>
-          <button type="button">copy</button>
+          <button  class="custom-button-copy-code" type="button">copy</button>
       </div>
-      <div class="custom-codebox-container">
-          <pre class="custom-code-body">
+      <div class="custom-code-main-container">
+          <pre class="custom-code">
             for (let i=1; i &lt;=numberCodeLines; i++){
               let line = document.createElement('div');
               line.className = 'custom-code-body::before'

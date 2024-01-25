@@ -1,6 +1,6 @@
 
 window.addEventListener("load",()=>{
-    const codes = document.querySelectorAll('.custom-code-body');
+    const codes = document.querySelectorAll('.custom-code');
     
     for (let i=0; i<codes.length; i++){
 
@@ -22,6 +22,5 @@ window.addEventListener("load",()=>{
             codes[i].appendChild(document.createTextNode('\n'));
         }
     }
-
 })
 
