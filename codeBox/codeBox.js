@@ -13,11 +13,12 @@ hljs.registerLanguage('C++',language_c_plus_plus);
 */
 
 const codes = document.querySelectorAll('.custom-code');
+const copyButtons = document.querySelectorAll('.custom-button-copy-code');
+
 if (codes){
     //numered code lines
     window.addEventListener("load",()=>{
         for (let i=0; i<codes.length; i++){
-
             //all code lines
             const codeLines = codes[i].textContent.split('\n')
             //extra white space in the first code line
@@ -43,4 +44,37 @@ if (codes){
             }
         }
     })
+}
+
+//copy code from box
+if (copyButtons){
+    // new copy method: clipboard requires a secure origin (HTTPS) to copy 
+    if ('clipboard' in navigator){
+        for (let i=0; i<copyButtons.length;i++){
+            copyButtons[i].addEventListener("click",async ()=>{           
+                try{
+                    await navigator.clipboard.writeText(codes[i].textContent);
+                    console.log('code copied!');
+                    alert("Code copied!");    
+                }
+                catch(err){
+                    console.error('Failed to copy: ', err);
+                }
+            })
+        }
+    }
+    // deprecated copy method : work for test 
+    else{
+        for (let i=0; i<copyButtons.length;i++){
+            copyButtons[i].addEventListener("click",()=>{
+                const textArea = document.createElement('textarea');
+                textArea.textContent = codes[i].textContent;
+                document.body.append(textArea);
+                textArea.select();
+                document.execCommand("copy");
+                console.log('code copied!');
+                alert("Code copied!");         
+            })
+        }
+    }
 }
