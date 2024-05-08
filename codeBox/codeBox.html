@@ -225,5 +225,154 @@
           </pre>
       </div>
     </div>
+
+
+    <!--code block: motors 1-->
+    <div class="custom-code-body-container">
+      <div class="custom-code-header-container">
+          <p class="custom-code-title">Main.ino</p>
+          <button  class="custom-button-copy-code" type="button">copy</button>
+      </div>
+      <div class="custom-code-main-container">
+          <pre class="custom-code">
+            // 27 - Standby pin
+// 14 - AIN1 pin
+// 12 - AIN2 pin
+// 13 - PWMA pin
+// 26 - BIN1 pin
+// 25 - BIN2 pin
+// 33 - PWMB pin
+// To reverse the motor direction (forward/reverse), swap the motor controller pins AIN1 and AIN2 or BIN1 and BIN2.
+const int pwm_left_motor = 13;     
+const int pwm_right_motor = 33;
+const int standby = 27;
+const int motor_left_AIN1 = 14;
+const int motor_left_AIN2 = 12;
+const int motor_right_BIN1 = 26;
+const int motor_right_BIN2 = 25;
+const int pwm_frecuency = 980;           // PWM frecuency for arduino uno 
+const int pwm_left_channel = 0;          // 0-15 available channels (left motor channel) 
+const int pwm_right_channel = 1;         // 0-15 available channels (right motor channel)
+const int resolution = 8;                // 8-bit resolution means control values from 0 to 255
+
+int max_velocity;                        // the maximum linear velocity of the robot read as PWM
+int max_pwm = 120;                       // max PWM output for motors
+int ss_motor = 40;                       // speed increased in a single motor
+          </pre>
+      </div>
+    </div>
+
+text here!......................
+
+<!--code block: motors 2-->
+    <div class="custom-code-body-container">
+      <div class="custom-code-header-container">
+          <p class="custom-code-title">SetupConfiguration.ino</p>
+          <button  class="custom-button-copy-code" type="button">copy</button>
+      </div>
+      <div class="custom-code-main-container">
+          <pre class="custom-code">
+            void Setup_motors(){
+  pinMode(pwm_left_motor,OUTPUT);                                 // declared GPIOS as output to write values
+  pinMode(pwm_right_motor,OUTPUT);
+  pinMode(standby,OUTPUT);
+  pinMode(motor_left_AIN1,OUTPUT);
+  pinMode(motor_left_AIN2,OUTPUT);
+  pinMode(motor_right_BIN1,OUTPUT);
+  pinMode(motor_right_BIN2,OUTPUT);
+  
+  digitalWrite(standby,HIGH);                                     // turn on motor driver
+  ledcSetup(pwm_left_channel, pwm_frecuency, resolution);         // configure pwm for left motor  
+  ledcSetup(pwm_right_channel, pwm_frecuency, resolution);        // configure pwm for right motor
+  ledcAttachPin(pwm_left_motor, pwm_left_channel);                // attach the channel to the gpio used for pwm left motor 
+  ledcAttachPin(pwm_right_motor, pwm_right_channel);              // attach the channel to the gpio used for pwm right motor 
+}
+          </pre>
+      </div>
+    </div>
+
+text here!......................
+
+<!--code block: motors 3-->
+    <div class="custom-code-body-container">
+      <div class="custom-code-header-container">
+          <p class="custom-code-title">UserFunctions.ino</p>
+          <button  class="custom-button-copy-code" type="button">copy</button>
+      </div>
+      <div class="custom-code-main-container">
+          <pre class="custom-code">
+            void speed_right_motor(int right){
+  /*
+  * Right motor output speed configuration
+  */                         
+  if(right >= 0)                                    
+  {
+    digitalWrite(motor_right_BIN1,LOW);                  
+    digitalWrite(motor_right_BIN2,HIGH);
+    ledcWrite(pwm_right_channel, right);
+  }
+  
+  if(right < 0)                                     
+  {                            
+    digitalWrite(motor_right_BIN1,HIGH);                  
+    digitalWrite(motor_right_BIN2,LOW);
+    ledcWrite(pwm_right_channel, abs(right));
+  }
+}
+
+
+void speed_left_motor(int left){
+  /*
+  * Left motor output speed configuration
+  */ 
+  if(left >= 0)                                    
+  {
+    digitalWrite(motor_left_AIN1,LOW);                  
+    digitalWrite(motor_left_AIN2,HIGH);
+    ledcWrite(pwm_left_channel, left);
+  }
+  
+  if(left < 0)                                     
+  {                            
+    digitalWrite(motor_left_AIN1,HIGH);                  
+    digitalWrite(motor_left_AIN2,LOW);
+    ledcWrite(pwm_left_channel, abs(left));
+  }
+}
+
+
+void speed_motors(int robot_speed){
+  /*
+  * Right and Left motor output speed configuration.
+  * One output speed on both motors
+  */                      
+
+  if(robot_speed >= 0)                                    
+  {
+    digitalWrite(motor_left_AIN1,LOW);                  
+    digitalWrite(motor_left_AIN2,HIGH);
+    digitalWrite(motor_right_BIN1,LOW);                  
+    digitalWrite(motor_right_BIN2,HIGH);
+    ledcWrite(pwm_right_channel, robot_speed);
+    ledcWrite(pwm_left_channel, robot_speed);
+  }
+  
+  if(robot_speed < 0)                                     
+  {                            
+    digitalWrite(motor_left_AIN1,HIGH);                  
+    digitalWrite(motor_left_AIN2,LOW);
+    digitalWrite(motor_right_BIN1,HIGH);                  
+    digitalWrite(motor_right_BIN2,LOW);
+    ledcWrite(pwm_right_channel, abs(robot_speed));
+    ledcWrite(pwm_left_channel, abs(robot_speed));
+  }
+}
+          </pre>
+      </div>
+    </div>
+
+
+
+
 </body>
 </html>

@@ -23,6 +23,13 @@ if (codes){
             const codeLines = codes[i].textContent.split('\n')
             //extra white space in the first code line
             const whiteSpace = codeLines[0].match(/^\s*/)[0]
+            
+            // overflow in y direction
+            if(codeLines.length > 16){
+                codes[i].style.overflowY = 'scroll';
+                codes[i].style.height = '296px';
+                
+            }
 
             //delete the original code line
             while(codes[i].childNodes.length > 0) {
@@ -42,6 +49,7 @@ if (codes){
                 codes[i].appendChild(span);
                 codes[i].appendChild(document.createTextNode('\n'));
             }
+            
         }
     })
 }
